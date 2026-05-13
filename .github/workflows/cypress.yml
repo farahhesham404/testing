@@ -1,0 +1,80 @@
+name: Cypress E2E Tests
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  cypress-run:
+    name: Run Cypress BDD Tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        # Run tests across multiple Node versions to ensure compatibility
+        node-version: [18.x]
+
+    steps:
+      # Step 1: Checkout the repository code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      # Step 3: Install all project dependencies
+      - name: Install Dependencies
+        run: npm ci
+
+      # Step 4: Verify Cypress binary is installed
+      - name: Verify Cypress Installation
+        run: npx cypress verify
+
+      # Step 5: Run all BDD Cucumber feature tests headlessly
+      - name: Run Cypress BDD Tests
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          headed: false
+          config: baseUrl=https://practicesoftwaretesting.com
+        env:
+          # Pass environment variables if needed
+          CYPRESS_baseUrl: https://practicesoftwaretesting.com
+
+      # Step 6: Upload screenshots on test failure
+      - name: Upload Screenshots on Failure
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+          retention-days: 7
+
+      # Step 7: Upload videos (always, for review)
+      - name: Upload Test Videos
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
+          retention-days: 7
+
+      # Step 8: Upload the Cucumber JSON report
+      - name: Upload Cucumber Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cucumber-report
+          path: cypress/reports/cucumber-report.json
+          retention-days: 7

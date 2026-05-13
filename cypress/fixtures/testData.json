@@ -1,0 +1,15 @@
+{
+  "email": "customer@practicesoftwaretesting.com",
+  "password": "welcome01",
+  "invalidEmail": "invalid@notreal.com",
+  "invalidPassword": "wrongpassword",
+  "emptyEmail": "",
+  "product": "Hammer",
+  "nonexistentProduct": "xyz123nonexistent",
+  "categoryFilter": "Power Tools",
+  "sortOption": "Price (Low - High)",
+  "contactName": "Test User",
+  "contactEmail": "test@example.com",
+  "contactMessage": "This is an automated test message sent from Cypress.",
+  "contactSubject": "Customer service"
+}

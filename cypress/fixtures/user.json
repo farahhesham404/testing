@@ -1,0 +1,16 @@
+{
+  "validEmail": "customer@practicesoftwaretesting.com",
+  "validPassword": "welcome01",
+  "invalidEmail": "notauser@fake.com",
+  "invalidPassword": "badpassword123",
+  "adminEmail": "admin@practicesoftwaretesting.com",
+  "adminPassword": "welcome01",
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "address": "123 Test Street",
+  "city": "TestCity",
+  "state": "TestState",
+  "country": "US",
+  "postcode": "12345",
+  "phone": "0123456789"
+}

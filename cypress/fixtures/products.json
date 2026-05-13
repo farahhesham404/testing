@@ -1,0 +1,12 @@
+{
+  "searchTermValid": "Hammer",
+  "searchTermInvalid": "xyz123nonexistent",
+  "categoryPowerTools": "Power Tools",
+  "categoryHandTools": "Hand Tools",
+  "sortLowToHigh": "Price (Low - High)",
+  "sortHighToLow": "Price (High - Low)",
+  "minExpectedResults": 1,
+  "expectedProductTitleSubstring": "Hammer",
+  "firstProductIndex": 0,
+  "secondProductIndex": 1
+}
