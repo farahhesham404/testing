@@ -13,7 +13,8 @@ on:
 jobs:
   cypress-run:
     name: Run Cypress BDD Tests
-    runs-on: ubuntu-latest
+    runs-on: self-host
+
 
     strategy:
       fail-fast: false
