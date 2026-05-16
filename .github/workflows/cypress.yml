@@ -29,11 +29,22 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+          check-latest: true
 
-      - name: Check Node Version
+      - name: Validate Node Version is 20+
         run: |
-          node -v
-          npm -v
+          NODE_VERSION=$(node -v | cut -d 'v' -f 2 | cut -d '.' -f 1)
+          if [ "$NODE_VERSION" -lt 20 ]; then
+            echo "ERROR: Node version must be 20 or higher. Current: $(node -v)"
+            exit 1
+          fi
+          echo "✓ Node version: $(node -v)"
+          echo "✓ npm version: $(npm -v)"
+
+      - name: Clean npm cache and node_modules
+        run: |
+          npm cache clean --force
+          rm -rf node_modules package-lock.json
 
       - name: Install Dependencies
         run: npm ci
