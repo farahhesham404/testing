@@ -60,7 +60,7 @@ jobs:
           if (Test-Path "C:\Program Files\Git\usr\bin") {
             echo "C:\Program Files\Git\usr\bin" >> $env:GITHUB_PATH
           }
-        shell: pwsh
+        shell: powershell
       - name: Run Cypress BDD Tests
         uses: cypress-io/github-action@v6
         with:
