@@ -39,8 +39,8 @@ jobs:
       - name: Clean npm cache and node_modules
         run: |
           npm cache clean --force
-          if exist node_modules rmdir /s /q node_modules
-          if exist package-lock.json del package-lock.json
+          Remove-Item -Recurse -Force node_modules -ErrorAction SilentlyContinue
+          Remove-Item -Force package-lock.json -ErrorAction SilentlyContinue
 
       - name: Install Dependencies
         run: npm ci
