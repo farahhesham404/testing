@@ -1,5 +1,5 @@
 {
-  "validEmail": "customer@practicesoftwaretesting.com",
+  "validEmail": "customer2@practicesoftwaretesting.com",
   "validPassword": "welcome01",
   "invalidEmail": "notauser@fake.com",
   "invalidPassword": "badpassword123",

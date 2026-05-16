@@ -54,6 +54,13 @@ class LoginPage {
 
   /** Assert the user is logged in (redirected to account) */
   verifyLoginSuccess() {
+    // Check if we are still on the login page with an error
+    cy.url().then((url) => {
+      if (url.includes('/auth/login')) {
+        this.errorAlert.should('not.exist');
+      }
+    });
+    
     cy.url().should('include', '/account');
     this.userMenu.should('be.visible');
     cy.get('body').should('not.be.empty');

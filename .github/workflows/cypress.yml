@@ -52,6 +52,15 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Verify Cypress Installation
+        run: npx cypress verify
+
+      - name: Ensure Git tools are in PATH (for gzip)
+        run: |
+          if [ -d "C:/Program Files/Git/usr/bin" ]; then
+            echo "C:/Program Files/Git/usr/bin" >> $GITHUB_PATH
+          fi
+        shell: bash
       - name: Run Cypress BDD Tests
         uses: cypress-io/github-action@v6
         with:

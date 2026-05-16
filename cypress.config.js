@@ -9,9 +9,10 @@ module.exports = defineConfig({
     specPattern: "cypress/e2e/features/*.feature",
     supportFile: "cypress/support/e2e.js",
     chromeWebSecurity: false,
+    userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
     viewportWidth: 1280,
     viewportHeight: 720,
-    defaultCommandTimeout: 10000,
+    defaultCommandTimeout: 15000,
     pageLoadTimeout: 30000,
     async setupNodeEvents(on, config) {
       await addCucumberPreprocessorPlugin(on, config);

@@ -115,9 +115,10 @@ Cypress.Commands.add('verifyCartBadge', (expectedCount) => {
     .and('contain', expectedCount);
 });
 
-// Command 19: Wait for page network idle (replaces bare cy.wait)
+// Command 19: Wait for page network idle or essential element
 Cypress.Commands.add('waitForPage', () => {
-  cy.wait(2000);
+  cy.get('body').should('be.visible').and('not.be.empty');
+  cy.wait(1000); // Small buffer for animations
 });
 
 // Command 20: Assert the current URL includes a given path
