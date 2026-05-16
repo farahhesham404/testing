@@ -55,7 +55,7 @@ jobs:
       - name: Run Cypress BDD Tests
         uses: cypress-io/github-action@v6
         with:
-          browser: chrome
+          browser: firefox
           headed: false
           config: baseUrl=https://practicesoftwaretesting.com
         env:
