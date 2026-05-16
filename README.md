@@ -50,8 +50,8 @@ test/
 
 ### Prerequisites
 
-- **Node.js** v18 or later
-- **npm** v9 or later
+- **Node.js** v20 or later (required by Cypress 15+)
+- **npm** v10 or later
 
 ### Install Dependencies
 
@@ -108,13 +108,15 @@ The project uses **GitHub Actions** to automatically run all tests on every `pus
 ### Pipeline Steps
 
 1. ✅ Checkout repository
-2. ✅ Set up Node.js 18
-3. ✅ Install dependencies (`npm ci`)
-4. ✅ Verify Cypress installation
-5. ✅ Run all BDD Cucumber tests headlessly on Chrome
-6. ✅ Upload screenshots on failure
-7. ✅ Upload test videos
-8. ✅ Upload Cucumber JSON report
+2. ✅ Set up Node.js 20.x
+3. ✅ Validate Node.js version is 20+
+4. ✅ Clean npm cache and node_modules
+5. ✅ Install dependencies (`npm ci`)
+6. ✅ Verify Cypress installation
+7. ✅ Run all BDD Cucumber tests headlessly on Chrome
+8. ✅ Upload screenshots on failure
+9. ✅ Upload test videos
+10. ✅ Upload Cucumber JSON report
 
 ### Workflow File
 
