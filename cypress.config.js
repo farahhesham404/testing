@@ -6,7 +6,8 @@ const { createEsbuildPlugin } = require("@badeball/cypress-cucumber-preprocessor
 module.exports = defineConfig({
   e2e: {
     baseUrl: "https://practicesoftwaretesting.com",
-    specPattern: "cypress/e2e/features/*.feature",
+    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    specPattern: "cypress/e2e/**/*.feature",
     supportFile: "cypress/support/e2e.js",
     chromeWebSecurity: false,
     viewportWidth: 1280,
