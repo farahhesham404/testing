@@ -61,6 +61,13 @@ jobs:
             echo "C:\Program Files\Git\usr\bin" >> $env:GITHUB_PATH
           }
         shell: powershell
+
+      - name: Kill stale Firefox processes
+        run: |
+          taskkill /F /IM firefox.exe /T || true
+          taskkill /F /IM geckodriver.exe /T || true
+        shell: cmd
+        continue-on-error: true
       - name: Run Cypress BDD Tests
         uses: cypress-io/github-action@v6
         with:
