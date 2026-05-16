@@ -16,12 +16,5 @@
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^24.0.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8"
-  },
-  "cypress-cucumber-preprocessor": {
-    "stepDefinitions": "cypress/support/step_definitions/**/*.js",
-    "json": {
-      "enabled": true,
-      "output": "cypress/reports/cucumber-report.json"
-    }
   }
 }

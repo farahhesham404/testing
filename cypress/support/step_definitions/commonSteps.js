@@ -12,12 +12,12 @@
 
 import { Given, When, Then, Before } from "@badeball/cypress-cucumber-preprocessor";
 
-import HomePage    from "../POM/HomePage";
-import LoginPage   from "../POM/LoginPage";
-import ProductPage from "../POM/ProductPage";
-import CartPage    from "../POM/CartPage";
-import ContactPage from "../POM/ContactPage";
-import SearchPage  from "../POM/SearchPage";
+import HomePage    from "../page_objects/HomePage";
+import LoginPage   from "../page_objects/LoginPage";
+import ProductPage from "../page_objects/ProductPage";
+import CartPage    from "../page_objects/CartPage";
+import ContactPage from "../page_objects/ContactPage";
+import SearchPage  from "../page_objects/SearchPage";
 
 // Instantiate all Page Objects once — reused across all steps
 const homePage    = new HomePage();
