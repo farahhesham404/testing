@@ -57,10 +57,10 @@ jobs:
 
       - name: Ensure Git tools are in PATH (for gzip)
         run: |
-          if [ -d "C:/Program Files/Git/usr/bin" ]; then
-            echo "C:/Program Files/Git/usr/bin" >> $GITHUB_PATH
-          fi
-        shell: bash
+          if (Test-Path "C:\Program Files\Git\usr\bin") {
+            echo "C:\Program Files\Git\usr\bin" >> $env:GITHUB_PATH
+          }
+        shell: pwsh
       - name: Run Cypress BDD Tests
         uses: cypress-io/github-action@v6
         with:
